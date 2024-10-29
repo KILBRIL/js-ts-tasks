@@ -6,3 +6,4 @@
 module.exports.evalExpr = function evalExpr(k) {
   throw new Error('Not implemented');
 };
+console.log('test');
