@@ -4,5 +4,5 @@
  * @returns {Object}
  */
 module.exports.hundredAfterOdd = function hundredAfterOdd(arr) {
-  throw new Error('Not implemented'); // remove me and write a solution
+  return arr.flatMap(num => (num % 2 !== 0 ? [num, 100] : [num]));
 };
