@@ -4,5 +4,24 @@
  * @returns Promise
  */
 module.exports.all = function all(promisesArray) {
-  throw new Error('Not implemented'); // remove me and write your code
+  return new Promise((resolve, reject) => {
+    const results = [];
+    let completed = 0;
+
+    promisesArray.forEach((promise, index) => {
+      promise
+        .then(result => {
+          results[index] = result;
+          completed++;
+          if (completed === promisesArray.length) {
+            resolve(results);
+          }
+        })
+        .catch(reject);
+    });
+
+    if (promisesArray.length === 0) {
+      resolve([]);
+    }
+  });
 };

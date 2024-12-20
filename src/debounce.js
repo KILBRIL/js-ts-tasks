@@ -6,5 +6,13 @@
  * @return {function}
  */
 module.exports.debounce = function debounce(fn, delay) {
-  throw new Error('Not implemented'); // remove me and write your code
+  let timer = null;
+  return function (...args) {
+    if (timer === null) {
+      fn(...args);
+      timer = setTimeout(() => {
+        timer = null;
+      }, delay);
+    }
+  };
 };
